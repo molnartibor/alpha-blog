@@ -52,4 +52,5 @@ group :production do
 #postgres... was das???
   gem 'rails_12factor'
 #end this do what
+#the production group will instal in production server?
 end
