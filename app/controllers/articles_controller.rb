@@ -4,11 +4,19 @@ class ArticlesController < ApplicationController
     end
     
     def create
-        render plain: params[:article].inspect
-        #to see what is created?
         @article = Article.new(article_params)
-        #.new will not work! it need parameters
-        @article.save
+        if @article.save 
+            flash[:notice] = "Article was successfully created!"
+            redirect_to article_path(@article)
+        else 
+            render 'new'
+        end
+        #@article.save
+        #redirect_to article_path(@article)
+    end
+    
+    def show
+        @article = Article.find(params[:id])
     end
     
     private
@@ -16,4 +24,5 @@ class ArticlesController < ApplicationController
             params.require(:article).permit(:title, :description)
             #coze??? article vola samo seba???
         end
+    
 end
