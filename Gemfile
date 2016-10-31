@@ -37,10 +37,11 @@ group :development, :test do
   gem 'byebug'
 end
 
-group :development do
+group :development, :test do
   gem 'sqlite3'
 #heroku dont use sqlite3 therefore we move it into development
   # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'byebug'
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
@@ -49,8 +50,6 @@ end
 
 group :production do
   gem 'pg'
-#postgres... was das???
   gem 'rails_12factor'
-#end this do what
-#the production group will instal in production server?
+
 end
