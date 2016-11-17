@@ -11,10 +11,15 @@ Rails.application.routes.draw do
   resources :articles 
   #this line make the CRUD for the articles
 
+  # create a rout for sign up
   get 'signup', to: 'users#new'
   # post 'users', to: 'users#create' or the resources
   resources :users, except: [:new]
-  # create a rout for sign up
+  
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+  
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
