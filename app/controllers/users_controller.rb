@@ -44,7 +44,7 @@ class UsersController < ApplicationController
            @user = User.find(params[:id])
        end
        def require_same_user
-           if  current_user |= @user
+           if  current_user != @user
                flash[:danger] = "You can edit only your own account"
                redirect_to root_path
            end
